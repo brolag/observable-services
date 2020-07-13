@@ -54,7 +54,7 @@ export class GroceriesServiceService {
       { headers: this.httpHeaders }).subscribe(responseItem => {
         this.dataSource.items = this.dataSource.items.map(item => {
           if (item.id === responseItem.id) {
-            item.status = !item.status;
+            item.ready = responseItem.ready;
           }
           return item;
         });
