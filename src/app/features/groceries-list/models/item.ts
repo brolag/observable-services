@@ -1,6 +1,6 @@
 export interface Item {
   id: string;
-  name: string;
-  category?: string;
+  name?: string;
+  ready?: boolean;
   date?: Date;
 }

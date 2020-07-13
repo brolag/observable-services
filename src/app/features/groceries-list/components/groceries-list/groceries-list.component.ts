@@ -20,4 +20,11 @@ export class GroceriesListComponent implements OnInit {
     this.groceriesService.loadItems();
   }
 
+  public toggleItemStatus(itemId: string): void {
+    this.groceriesService.toggleItemStatus(itemId);
+  }
+
+  public deleteItem(itemId: string): void {
+    this.groceriesService.deleteItem(itemId);
+  }
 }
