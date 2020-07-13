@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GroceriesServiceService } from '../../services/groceries/groceries-service.service';
+import { Observable } from 'rxjs/internal/Observable';
+import { Item } from '../../models/item';
 
 @Component({
   selector: 'app-groceries-list',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroceriesListComponent implements OnInit {
 
-  constructor() { }
+  public items$: Observable<Item[]>;
+
+  constructor(private groceriesService: GroceriesServiceService) {
+    this.items$ = this.groceriesService.items$;
+  }
 
   ngOnInit(): void {
+    this.groceriesService.loadItems();
   }
 
 }

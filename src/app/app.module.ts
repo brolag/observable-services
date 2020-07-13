@@ -12,9 +12,9 @@ import { LayoutModule } from './features/layout/layout.module';
   ],
   imports: [
     BrowserModule,
-    GroceriesListModule,
     LayoutModule,
     BrowserAnimationsModule,
+    GroceriesListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

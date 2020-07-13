@@ -1,0 +1,15 @@
+<div class="add-form-container">
+  <mat-form-field class="add-field" appearance="fill">
+    <mat-label>Nuevo item</mat-label>
+    <input 
+      class="add-form" 
+      [(ngModel)]="newItem"
+      placeholder="Agregue un nuevo item" 
+      matInput>
+  </mat-form-field>
+  <div class="button-container">
+    <button (click)="addNewItem()" mat-fab color="primary">
+      <mat-icon>add_shopping_cart</mat-icon>
+    </button>
+  </div>
+</div>
