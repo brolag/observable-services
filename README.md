@@ -1,4 +1,4 @@
-# Datos de la presentación
+# Observable Services Front End
 
 ¿Necesita estructurar sus servicios y añadir escalabilidad y separación de responsabilidades pero sin complicarse mucho la vida? Observable Services puede ser la solución a sus problemas. En esta charla aprenderemos sobre este patrón y cómo implementarlo efectivamente.
 
