@@ -28,7 +28,8 @@ export class GroceriesServiceService {
   }
 
   public loadItems(): void {
-    this.httpClient.get<Item[]>(environment.API_URL).subscribe(items => {
+    this.httpClient.get<Item[]>(environment.API_URL)
+    .subscribe(items => {
       this.dataSource.items = items;
       this.groceriesListSubject.next([...this.dataSource.items]);
     }, error => console.log(`ERROR: ${error}`));
@@ -41,7 +42,8 @@ export class GroceriesServiceService {
       name: itemName,
       ready: false
     }),
-    { headers: this.httpHeaders }).subscribe(responseItem => {
+    { headers: this.httpHeaders })
+    .subscribe(responseItem => {
       this.dataSource.items.push(responseItem);
       this.groceriesListSubject.next([...this.dataSource.items]);
     }, error => console.log(`ERROR: ${error}`));
@@ -51,7 +53,8 @@ export class GroceriesServiceService {
     this.httpClient.patch<Item>(
       environment.API_URL,
       JSON.stringify({ id }),
-      { headers: this.httpHeaders }).subscribe(responseItem => {
+      { headers: this.httpHeaders })
+      .subscribe(responseItem => {
         this.dataSource.items = this.dataSource.items.map(item => {
           if (item.id === responseItem.id) {
             item.ready = responseItem.ready;
@@ -65,7 +68,8 @@ export class GroceriesServiceService {
   public deleteItem(id: string): void {
     this.httpClient.delete<Item>(
       `${environment.API_URL}/${id}`,
-      { headers: this.httpHeaders }).subscribe(responseItem => {
+      { headers: this.httpHeaders })
+      .subscribe(responseItem => {
         this.dataSource.items = this.dataSource.items.filter(item => item.id !== responseItem.id);
         this.groceriesListSubject.next([...this.dataSource.items]);
       }, error => console.log(`ERROR: ${error}`));
